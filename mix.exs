@@ -23,8 +23,22 @@ defmodule MyApp.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:scenic, "~> 0.11.0"},
-      {:scenic_driver_local, "~> 0.11.0"},
+      # scenic 0.11.2 + scenic_driver_local 0.11.0 does support png transparency
+      # {:scenic, "0.11.2"},
+      # {:scenic_driver_local, "0.11.0"},
+
+      # scenic 0.12.0-rc.0 + scenic_driver_local 0.12.0-rc.0 does not support png transparency
+      # {:scenic, "0.12.0-rc.0"},
+      # {:scenic_driver_local, "0.12.0-rc.0"},
+
+      # scenic 0.12.0-rc.0 + scenic_driver_local 0.11.0 does support png transparency
+      # {:scenic, "0.12.0-rc.0", override: true},
+      # {:scenic_driver_local, "0.11.0"},
+
+      # scenic 0.11.2 + scenic_driver_local 0.12.0-rc.0 does not support png transparency
+      {:scenic, "0.11.2", override: true},
+      {:scenic_driver_local, "0.12.0-rc.0"},
+      {:elixir_make, "0.8.4", override: true},
     ]
   end
 end
